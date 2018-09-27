@@ -37,6 +37,7 @@ const getArticleList = (articles,articlesNumber) => {
         return <HeaderArticle article={header} key={header.ID} />
     })
 
+    // A
     let regulars = partitioned[1].map((article) => {
         return <Article key={article.ID} article={article} />
     })
