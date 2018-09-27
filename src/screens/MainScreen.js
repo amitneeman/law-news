@@ -4,22 +4,25 @@ import {getCategory,getCategories} from '../store/reducers/categories/actions';
 import styled from 'styled-components';
 import Category from '../components/Category';
 import _ from 'lodash';
-
+import {StatusBar} from 'react-native'
 import {RefreshControl,View,Text,ActivityIndicator,ScrollView} from 'react-native';
+
+
 
 class MainScreen extends Component {
     static navigationOptions = {
         title: 'חדשות המשפט',
         headerBackTitle: null,
         headerStyle: {
-            backgroundColor: '#af2a1c',
+            backgroundColor: '#af2a1c'
         },
         headerTintColor: 'white',
         headerTitleStyle: {
             fontWeight: 'bold',
             textAlign:'center', 
             alignSelf:'center',
-            flex:1
+            flex:1,
+            fontSize: 20
         },
         
       };
@@ -53,7 +56,8 @@ class MainScreen extends Component {
         }else {
             return (
                 <ScrollView contentContainerStyle={{
-                    alignItems: 'center'
+                    alignItems: 'center',
+                    paddingBottom: 20
                 }}
                 refreshControl={
                     <RefreshControl
@@ -61,12 +65,15 @@ class MainScreen extends Component {
                     onRefresh={this.onRefresh}
                     />
                 }>
+                 <StatusBar
+                    barStyle="light-content"
+                    hidden={false}
+                />
                     {this.getCategories()}
                 </ScrollView>
             )
         }
     }
-
     getCategories = () => {
         const {categories} = this.props;
         return Object.keys(categories).map( (name) => {

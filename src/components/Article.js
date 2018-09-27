@@ -1,5 +1,5 @@
 import React from 'react';
-import {Image,View,Text,TouchableOpacity} from 'react-native';
+import {Image,Platform,TouchableOpacity} from 'react-native';
 import { withNavigation } from 'react-navigation';
 import styled from 'styled-components';
 
@@ -23,7 +23,7 @@ const ArticleHeader = styled.Text`
 
 const HeaderContainer = styled.View`
 flex:1;
-flexDirection: row ;
+flexDirection: row;
 justifyContent: flex-end;
 `;
 

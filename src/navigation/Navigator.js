@@ -1,9 +1,13 @@
 import React from 'react';
-import { createStackNavigator } from 'react-navigation';
+import { createStackNavigator,createBottomTabNavigator } from 'react-navigation';
 import MainScreen from '../screens/MainScreen';
 import ArticleScreen from '../screens/ArticleScreen';
 import SingleCategory from '../screens/SingleCategory';
-const RootStack = createStackNavigator(
+import NeemanLawSite from '../screens/NeemanLawSite';
+import Ionicons from 'react-native-vector-icons/Ionicons';
+
+
+const HomeStack = createStackNavigator(
   {
     MainScreen: MainScreen,
     ArticleViewer: ArticleScreen,
@@ -15,7 +19,30 @@ const RootStack = createStackNavigator(
 );
   
 const Navigator = () => (
-    <RootStack />
+  <HomeStack />
 )
-
-export default Navigator;
+export default createBottomTabNavigator(
+  {
+    'ראשי': HomeStack,
+    'לינק לאתר': NeemanLawSite
+  },
+  {
+    navigationOptions: ({ navigation }) => ({
+      tabBarIcon: ({ focused, tintColor }) => {
+        const { routeName } = navigation.state;
+        let iconName;
+        if (routeName === 'ראשי'){
+          iconName = 'md-home'
+        } else if(routeName === 'לינק לאתר'){
+          iconName = 'md-desktop'
+        }
+        return <Ionicons style={{marginTop: 10}} name={iconName} size={25} color={tintColor} />;
+      },
+    }),
+    tabBarOptions: {
+      activeTintColor: '#af2a1c',
+      inactiveTintColor: 'gray',
+    },
+  }
+);
+//export default Navigator;

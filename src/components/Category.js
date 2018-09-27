@@ -7,7 +7,7 @@ import {withNavigation} from 'react-navigation';
 import {TouchableOpacity} from 'react-native';
 
 const Container = styled.View`
-    margin-top: 50px;
+    margin-top: 20px;
     max-width: 90%;
     min-width: 90%;
 `
@@ -18,7 +18,7 @@ width: 100%;
 text-align: right;
 `
 const HeaderWrapper = styled.View`
-    background-color: white;
+    
     padding: 20px;
     margin-bottom: 10px;
 `
@@ -50,9 +50,7 @@ const getArticleList = (articles,articlesNumber) => {
 const Category = ({name,articles,navigation,articlesNumber}) => {
     return (
         <Container>
-            <HeaderWrapper>
-                <Header>{name}</Header>
-            </HeaderWrapper>
+
             {getArticleList(articles,articlesNumber)}
             <TouchableOpacity onPress={() => {
                 navigation.navigate('SingleCategory',{

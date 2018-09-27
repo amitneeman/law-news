@@ -29,6 +29,7 @@ const HeaderArticle = (props) => (
                 source={{uri: props.article.featured_image}}
             />
             <MainArticleHeader> {props.article.title} </MainArticleHeader>
+            
         </MainArticleContainer>
     </TouchableOpacity>
 )
