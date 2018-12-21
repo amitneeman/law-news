@@ -1,39 +1,59 @@
 import React, { Component } from 'react';
 import {connect} from 'react-redux';
 import {getCategory,getCategories} from '../store/reducers/categories/actions';
-import styled from 'styled-components';
 import Category from '../components/Category';
 import _ from 'lodash';
-import {StatusBar} from 'react-native'
-import {RefreshControl,View,Text,ActivityIndicator,ScrollView} from 'react-native';
-
-
+import {StatusBar,View,Image} from 'react-native'
+import {RefreshControl,ActivityIndicator,ScrollView,Text} from 'react-native';
+import HamburgerMenu from '../components/HamburgerMenu';
+import CategoriesMenu from '../components/CategoriesMenu';
 
 class MainScreen extends Component {
-    static navigationOptions = {
-        title: 'חדשות המשפט',
-        headerBackTitle: null,
-        headerStyle: {
-            backgroundColor: '#af2a1c'
-        },
-        headerTintColor: 'white',
-        headerTitleStyle: {
-            fontWeight: 'bold',
-            textAlign:'center', 
-            alignSelf:'center',
-            flex:1,
-            fontSize: 20
-        },
-        
-      };
+
+    static navigationOptions =({navigation}) => {
+        return {
+            title: 'חדשות המשפט',
+            headerBackTitle: null,
+            headerStyle: {
+                backgroundColor: '#af2a1c',
+                height: 60
+            },
+            headerRight: <HamburgerMenu
+                onPress={navigation.getParam('toggleMenu')} />,
+            headerLeft: <Image
+                style={{marginLeft: 20, marginBottom: 5}}
+                source={require("../resources/main_app_icon.png")}
+            />,
+            headerTintColor: 'white',
+            headerTitleStyle: {
+                fontWeight: 'bold',
+                textAlign: 'center',
+                alignSelf: 'center',
+                flex: 1,
+                fontSize: 20
+            }
+        }
+    };
     
     state = {
-        refreshing: false
+        refreshing: false,
+    }
+
+    componentDidMount() {
+        this.props.navigation.setParams({toggleMenu: this.toggleMenu});
+        this.props.getCategories();
+    }
+
+    toggleMenu = (sideBarOpen) => {
+        this.setState({
+            sideBarOpen
+        })
     }
 
     onRefresh = () => {
         this.setState({
-            refreshing: true
+            refreshing: true,
+            sideBarOpen: false
         })
 
         this.props.getCategories(this.finishRefresh);
@@ -55,22 +75,27 @@ class MainScreen extends Component {
 
         }else {
             return (
-                <ScrollView contentContainerStyle={{
-                    alignItems: 'center',
-                    paddingBottom: 20
-                }}
-                refreshControl={
-                    <RefreshControl
-                    refreshing={this.state.refreshing}
-                    onRefresh={this.onRefresh}
+                <View>
+                    <CategoriesMenu toggleMenu={this.toggleMenu} isActive={this.state.sideBarOpen}/>
+                    <ScrollView
+                        stickyHeaderIndices={[0]} 
+                        contentContainerStyle={{
+                        alignItems: 'center',
+                        paddingBottom: 20
+                        }}
+                        refreshControl={
+                            <RefreshControl
+                                refreshing={this.state.refreshing}
+                                onRefresh={this.onRefresh}
+                            />
+                    }>
+                    <StatusBar
+                        barStyle="light-content"
+                        hidden={false}
                     />
-                }>
-                 <StatusBar
-                    barStyle="light-content"
-                    hidden={false}
-                />
-                    {this.getCategories()}
-                </ScrollView>
+                        {this.getCategories()}
+                    </ScrollView>
+                </View>
             )
         }
     }
@@ -79,10 +104,6 @@ class MainScreen extends Component {
         return Object.keys(categories).map( (name) => {
            return <Category articlesNumber={5} key={name} name={name} articles={categories[name]} />
         });
-    }
-
-    componentDidMount(){
-        this.props.getCategories();
     }
 
     render() {

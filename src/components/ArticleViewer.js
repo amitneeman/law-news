@@ -5,7 +5,8 @@ class ArticleViewer extends Component {
     render() {
         
         return (
-                <WebView 
+                <WebView
+                useWebKit={true} 
                 source={{uri: `https://law-news.firebaseapp.com/?article=${this.props.id}`}}
                 />
         );

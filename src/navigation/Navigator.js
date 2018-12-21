@@ -1,5 +1,5 @@
 import React from 'react';
-import { createStackNavigator,createBottomTabNavigator } from 'react-navigation';
+import { createStackNavigator,createBottomTabNavigator,createDrawerNavigator } from 'react-navigation';
 import MainScreen from '../screens/MainScreen';
 import ArticleScreen from '../screens/ArticleScreen';
 import SingleCategory from '../screens/SingleCategory';
@@ -14,17 +14,16 @@ const HomeStack = createStackNavigator(
     SingleCategory: SingleCategory
   },
   {
-    initialRouteName: "MainScreen"
+    initialRouteName: "MainScreen",
   }
 );
+
   
-const Navigator = () => (
-  <HomeStack />
-)
 export default createBottomTabNavigator(
   {
     'ראשי': HomeStack,
     'לינק לאתר': NeemanLawSite
+
   },
   {
     navigationOptions: ({ navigation }) => ({
@@ -45,4 +44,3 @@ export default createBottomTabNavigator(
     },
   }
 );
-//export default Navigator;

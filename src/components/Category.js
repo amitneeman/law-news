@@ -1,5 +1,5 @@
 import React from 'react';
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
 import Article from './Article';
 import _ from 'lodash';
 import HeaderArticle from './HeaderArticle';
@@ -8,9 +8,9 @@ import {TouchableOpacity} from 'react-native';
 
 const Container = styled.View`
     margin-top: 20px;
-    max-width: 90%;
-    min-width: 90%;
+    width: 100%;
 `
+
 const Header = styled.Text`
 font-weight: bold;
 font-size: 20;
@@ -18,9 +18,8 @@ width: 100%;
 text-align: right;
 `
 const HeaderWrapper = styled.View`
-    
-    padding: 20px;
-    margin-bottom: 10px;
+    background-color: white;
+    padding: 10px;
 `
 
 const MoveToAllArticles = styled.Text`
@@ -37,7 +36,6 @@ const getArticleList = (articles,articlesNumber) => {
         return <HeaderArticle article={header} key={header.ID} />
     })
 
-    // A
     let regulars = partitioned[1].map((article) => {
         return <Article key={article.ID} article={article} />
     })
@@ -51,7 +49,11 @@ const getArticleList = (articles,articlesNumber) => {
 const Category = ({name,articles,navigation,articlesNumber}) => {
     return (
         <Container>
-
+            <HeaderWrapper>
+                <Header>
+                    {name}
+                </Header>
+            </HeaderWrapper>
             {getArticleList(articles,articlesNumber)}
             <TouchableOpacity onPress={() => {
                 navigation.navigate('SingleCategory',{
