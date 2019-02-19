@@ -6,7 +6,6 @@ import {connect} from 'react-redux';
 
 const Container = styled.View`
 background-color: #eee;
-height: 100px;
 width: 60%;
 position: absolute;
 z-index: 999;
@@ -16,6 +15,7 @@ flex:1;
 align-items: flex-end;
 box-shadow: 0 0 5px black;
 border-top-width: 0;
+padding-bottom: 10px;
 `
 const Category = styled.Text`
 color: #403f3f;
@@ -24,6 +24,7 @@ margin-top: 10px;
 width: 100%
 text-align: right;
 font-weight: bold;
+
 `
 
 class CategoriesMenu extends Component{
@@ -54,7 +55,7 @@ class CategoriesMenu extends Component{
     render(){
         const props = this.props;
         return (
-            <Container style={props.isActive ? {} : {display: 'none'}}>
+            <Container style={props.isActive ? {} : {display: 'none', height: 0, backgroundColor: "#00000000"}}>
                 {this.getCategories()}
             </Container>
         )

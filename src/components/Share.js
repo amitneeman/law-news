@@ -11,7 +11,7 @@ const ShareText = styled.Text`
 const initializeShare = (id) => {
     RnShare.share({
         message: 'קראתי כתבה מעניינת בחדשות המשפט!',
-        url:`https://law-news.firebaseapp.com/?article=${id}`,
+        url:`https://law-news.firebaseapp.com/?article=${id}&web=true`,
         title: 'שתף'
       }, {
         dialogTitle: 'שתף',

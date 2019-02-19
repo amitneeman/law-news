@@ -47,6 +47,9 @@ const getArticleList = (articles,articlesNumber) => {
 }
 
 const Category = ({name,articles,navigation,articlesNumber}) => {
+    if(articles.length === 0){
+        return null;
+    }
     return (
         <Container>
             <HeaderWrapper>

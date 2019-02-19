@@ -21,8 +21,8 @@ const HomeStack = createStackNavigator(
   
 export default createBottomTabNavigator(
   {
-    'ראשי': HomeStack,
-    'לינק לאתר': NeemanLawSite
+    'לינק לאתר': NeemanLawSite,
+    'ראשי': HomeStack
 
   },
   {
@@ -38,9 +38,10 @@ export default createBottomTabNavigator(
         return <Ionicons style={{marginTop: 10}} name={iconName} size={25} color={tintColor} />;
       },
     }),
+    initialRouteName: "ראשי",
     tabBarOptions: {
       activeTintColor: '#af2a1c',
-      inactiveTintColor: 'gray',
+      inactiveTintColor: 'gray'
     },
   }
 );
