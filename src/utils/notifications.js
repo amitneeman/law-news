@@ -1,7 +1,7 @@
 import { Permissions, Notifications } from 'expo';
 import axios from 'axios';
 
-const PUSH_ENDPOINT = 'http://192.168.1.62:3000/notifications/register';
+const PUSH_ENDPOINT = 'https://law-news-push-notifications.herokuapp.com/notifications/register';
 
 export async function registerForPushNotificationsAsync() {
   const {status} = await Permissions.getAsync(Permissions.NOTIFICATIONS);
