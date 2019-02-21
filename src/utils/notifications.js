@@ -7,10 +7,6 @@ export async function registerForPushNotificationsAsync() {
   const {status} = await Permissions.getAsync(Permissions.NOTIFICATIONS);
   let finalStatus = status;
 
-  if(finalStatus === "granted"){
-    return;
-  }
-
 
   if(finalStatus !== "granted"){
     const { status } = await Permissions.getAsync(Permissions.NOTIFICATIONS)

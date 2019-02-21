@@ -47,7 +47,7 @@ class CategoriesMenu extends Component{
                     }
                 })
             }}>
-                <Category>{name}</Category>
+                <Category style={this.props.isActive ? {} : {display: 'none', height: 0, color: "#00000000"}}>{name}</Category>
             </TouchableOpacity>
         ));
     }

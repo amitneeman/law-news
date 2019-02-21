@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "866291265145",
+    "firebase_url": "https://law-news.firebaseio.com",
+    "project_id": "law-news",
+    "storage_bucket": "law-news.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:866291265145:android:34463e5efe52557d",
+        "android_client_info": {
+          "package_name": "com.lawnewsltd.lawnewsprod"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "866291265145-2bn1f0omrhh4dl0vaa6skqcah1gpertp.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAi8MVeRM56tntIrETKbziEbI2DOqndy8s"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

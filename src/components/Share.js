@@ -9,9 +9,10 @@ const ShareText = styled.Text`
 `
 
 const initializeShare = (id) => {
+    let url = `https://law-news.firebaseapp.com/?article=${id}&web=true`; 
     RnShare.share({
-        message: 'קראתי כתבה מעניינת בחדשות המשפט!',
-        url:`https://law-news.firebaseapp.com/?article=${id}&web=true`,
+        message: `קראתי כתבה מעניינת בחדשות המשפט! ${url}` ,
+        url,
         title: 'שתף'
       }, {
         dialogTitle: 'שתף',
