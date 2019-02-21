@@ -4,8 +4,7 @@ import MainScreen from '../screens/MainScreen';
 import ArticleScreen from '../screens/ArticleScreen';
 import SingleCategory from '../screens/SingleCategory';
 import NeemanLawSite from '../screens/NeemanLawSite';
-import Ionicons from 'react-native-vector-icons/Ionicons';
-
+import { Ionicons } from '@expo/vector-icons';
 
 const HomeStack = createStackNavigator(
   {

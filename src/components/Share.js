@@ -1,8 +1,7 @@
 import React from 'react';
 import {Text,TouchableOpacity,Share as RnShare} from 'react-native';
 import styled from 'styled-components';
-import Ionicons from 'react-native-vector-icons/Ionicons';
-
+import { Ionicons } from '@expo/vector-icons';
 
 const ShareText = styled.Text`
     color: white;
