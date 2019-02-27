@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import {Dimensions,Text} from 'react-native';
-import Hamburger from 'react-native-hamburger';
+import {connect} from 'react-redux';
+import Hamburger from 'react-native-animated-hamburger';
+import {toggleMenu} from '../store/reducers/ui/actions';
 import styled from 'styled-components';
 
 const Container = styled.View`
@@ -19,9 +21,7 @@ class HamburgerMenu extends Component {
     }
 
     toggleMenu = () => {
-        let isActive = !this.state.isActive
-        this.setState({isActive});
-        this.props.onPress(isActive);
+        this.props.toggleMenu(this.props.isActive);
     }
 
     render() {
@@ -29,15 +29,20 @@ class HamburgerMenu extends Component {
             <Container>
                 <ButtonContainer>
                 <Hamburger 
-                active={this.state.isActive}
+                active={this.props.isActive}
                 color={"white"}
                 onPress={this.toggleMenu}
                 />
-                <Text>{this.props.counter}</Text>
                 </ButtonContainer>
             </Container>
         );
     }
 }
 
-export default HamburgerMenu;
+const mapStateToProps = (state) => {
+    return {
+        isActive: state.ui.sideBarOpen
+    }
+}
+
+export default connect(mapStateToProps,{toggleMenu})(HamburgerMenu);

@@ -18,7 +18,7 @@ const handleHeaderArticles = (categories) => {
         let regulars = partitioned[1]
 
         categories[category] = regulars;
-        categories["הכתבות החמות"] = categories["הכתבות החמות"].concat(headers)
+        categories["ראשי"] = categories["ראשי"].concat(headers)
     }
     return categories;
 }
@@ -33,7 +33,7 @@ export const getCategories = (callback) => {
 
         axios.all([ezrahi(),plili(),nadlan(),yerooshot(),maamarim()]).then(axios.spread((ezrahi,plili,nadlan,yerooshot,maamarim) => {
             let categories = {
-                ["הכתבות החמות"]: [],
+                ["ראשי"]: [],
                 ["משפט פלילי"]: plili.data.posts,
                 ["משפט אזרחי"]: ezrahi.data.posts,
                 ["נדל״ן ומיסוי"]: nadlan.data.posts,

@@ -5,7 +5,7 @@ import Category from '../components/Category';
 import _ from 'lodash';
 import {StatusBar,View,Image} from 'react-native'
 import {RefreshControl,ActivityIndicator,ScrollView,Text} from 'react-native';
-import HamburgerMenu from '../components/HamburgerMenu';
+import HamburgerMenu from '../containers/HamburgerMenu';
 import CategoriesMenu from '../components/CategoriesMenu';
 
 class MainScreen extends Component {
@@ -18,8 +18,7 @@ class MainScreen extends Component {
                 backgroundColor: '#af2a1c',
                 height: 60
             },
-            headerRight: <HamburgerMenu
-                onPress={navigation.getParam('toggleMenu')} />,
+            headerRight: <HamburgerMenu/>,
             headerLeft: <Image
                 style={{marginLeft: 20, marginBottom: 5}}
                 source={require("../resources/main_app_icon.png")}
@@ -40,20 +39,12 @@ class MainScreen extends Component {
     }
 
     componentDidMount() {
-        this.props.navigation.setParams({toggleMenu: this.toggleMenu});
         this.props.getCategories();
-    }
-
-    toggleMenu = (sideBarOpen) => {
-        this.setState({
-            sideBarOpen
-        })
     }
 
     onRefresh = () => {
         this.setState({
             refreshing: true,
-            sideBarOpen: false
         })
 
         this.props.getCategories(this.finishRefresh);

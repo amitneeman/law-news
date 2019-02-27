@@ -3,6 +3,7 @@ import { createStackNavigator,createBottomTabNavigator,createDrawerNavigator } f
 import MainScreen from '../screens/MainScreen';
 import ArticleScreen from '../screens/ArticleScreen';
 import SingleCategory from '../screens/SingleCategory';
+import TermsAndConditions from '../screens/TermsAndConditions';
 import NeemanLawSite from '../screens/NeemanLawSite';
 import { Ionicons } from '@expo/vector-icons';
 
@@ -10,7 +11,8 @@ const HomeStack = createStackNavigator(
   {
     MainScreen: MainScreen,
     ArticleViewer: ArticleScreen,
-    SingleCategory: SingleCategory
+    SingleCategory: SingleCategory,
+    TermsAndConditions: TermsAndConditions
   },
   {
     initialRouteName: "MainScreen",

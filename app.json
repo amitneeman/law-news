@@ -1,5 +1,15 @@
 {
   "expo": {
+    "splash": {
+      "image": "assests/splash.png",
+      "resizeMode": "cover",
+      "ldpi": "assests/splash.png",
+      "mdpi": "assests/splash.png",
+      "hdpi": "assests/splash.png",
+      "xhdpi": "assests/splash.png",
+      "xxhdpi": "assests/splash.png",
+      "xxxhdpi": "assests/splash.png"
+    },
     "sdkVersion": "32.0.0",
     "name": "חדשות המשפט",
     "icon": "./src/resources/icon-app_180.png",
@@ -10,8 +20,18 @@
     },
     "android": {
       "package": "com.lawnewsltd.lawnewsprod",
-      "versionCode":3,
-      "googleServicesFile": "./google-services.json"
+      "versionCode": 5,
+      "googleServicesFile": "./google-services.json",
+      "splash": {
+        "image": "assests/splash.png",
+        "resizeMode": "cover",
+        "ldpi": "assests/splash.png",
+        "mdpi": "assests/splash.png",
+        "hdpi": "assests/splash.png",
+        "xhdpi": "assests/splash.png",
+        "xxhdpi": "assests/splash.png",
+        "xxxhdpi": "assests/splash.png"
+      }
     }
   }
 }
