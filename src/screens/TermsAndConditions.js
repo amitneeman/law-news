@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
-import { View } from 'react-native'
-import PDFReader from 'rn-pdf-reader-js';
+import { View , WebView} from 'react-native'
 
 
 class TermsAndConditions extends Component {
@@ -22,8 +21,8 @@ class TermsAndConditions extends Component {
     render() {
         return (
             <View style={{flex: 1,justifyContent: 'center'}}>
-            <PDFReader 
-                source={{uri: `https://lawnews385264377.files.wordpress.com/2019/02/d7aad7a0d790d799-d7a9d799d79ed795d7a9.pdf`}}
+            <WebView 
+                source={{uri: `https://drive.google.com/file/d/0B1HYzBoMHHiZSUFpX3NFdTRxb3RVWEN4WS12Snl5V3hJRzNJ/view`}}
                 />
             </View>
         );

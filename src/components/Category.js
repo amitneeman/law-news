@@ -7,7 +7,7 @@ import {withNavigation} from 'react-navigation';
 import {TouchableOpacity} from 'react-native';
 
 const Container = styled.View`
-    margin-top: 20px;
+    margin-top: 12px;
     width: 100%;
 `
 
@@ -16,10 +16,10 @@ font-weight: bold;
 font-size: 20;
 width: 100%;
 text-align: right;
+color: white;
 `
 const HeaderWrapper = styled.View`
-    background-color: white;
-    padding: 10px;
+    padding: 5px;
 `
 
 const MoveToAllArticles = styled.Text`
@@ -46,17 +46,29 @@ const getArticleList = (articles,articlesNumber) => {
     return [...headers ,...regulars];
 }
 
-const Category = ({name,articles,navigation,articlesNumber}) => {
+const Category = ({name,articles,navigation,articlesNumber,color}) => {
     if(articles.length === 0){
         return null;
     }
-    return (
-        <Container>
-            <HeaderWrapper>
-                <Header>
+    let header = null;
+    let more = null;
+    
+    if(name !== "ראשי"){
+        header = (
+            <HeaderWrapper style={{backgroundColor: color}}>
+                <Header >
                     {name}
                 </Header>
             </HeaderWrapper>
+        );
+
+        more = (
+            <MoveToAllArticles> עוד מ{name}...</MoveToAllArticles>
+        );
+    }
+    return (
+        <Container style={name === "ראשי" ? {marginTop: 0} : {}}>
+            {header}
             {getArticleList(articles,articlesNumber)}
             <TouchableOpacity onPress={() => {
                 navigation.navigate('SingleCategory',{
@@ -66,7 +78,7 @@ const Category = ({name,articles,navigation,articlesNumber}) => {
                     }
                 })
             }}>
-                <MoveToAllArticles> עוד מ{name}...</MoveToAllArticles>
+            {more}
             </TouchableOpacity>
         </Container>
     )

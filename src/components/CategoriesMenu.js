@@ -3,8 +3,8 @@ import { TouchableOpacity } from 'react-native';
 import { withNavigation } from 'react-navigation';
 import styled from 'styled-components';
 import { connect } from 'react-redux';
-import {MailComposer} from 'expo';
-import {toggleMenu} from '../store/reducers/ui/actions';
+import { MailComposer } from 'expo';
+import { toggleMenu } from '../store/reducers/ui/actions';
 
 
 const Container = styled.View`
@@ -37,7 +37,7 @@ class CategoriesMenu extends Component {
 
     openMailModal = () => {
         MailComposer.composeAsync({
-            recipients:["app@lawnewsgroup.co.il"],
+            recipients: ["app@lawnewsgroup.co.il"],
             subject: "יצירת קשר עם מפעילי חדשות המשפט"
         })
     }
@@ -73,10 +73,14 @@ class CategoriesMenu extends Component {
         return (
             <Container style={props.isActive ? {} : { display: 'none', height: 0, backgroundColor: "#00000000" }}>
                 {this.getCategories()}
-                <TouchableOpacity onPress={() => { this.openMailModal() }}>
+                <TouchableOpacity onPress={() => {
+                    this.openMailModal(); this.props.toggleMenu(true);
+                }}>
                     <MenuItem style={this.props.isActive ? {} : { display: 'none', height: 0, color: "#00000000" }}>צור קשר</MenuItem>
                 </TouchableOpacity>
-                <TouchableOpacity onPress={() => { this.openTerms() }}>
+                <TouchableOpacity onPress={() => {
+                    this.openTerms(); this.props.toggleMenu(true);
+                }}>
                     <MenuItem style={this.props.isActive ? {} : { display: 'none', height: 0, color: "#00000000" }}>תנאי שימוש</MenuItem>
                 </TouchableOpacity>
             </Container>
@@ -91,6 +95,6 @@ const mapStateToProps = (state) => {
     }
 }
 
-const Menu = connect(mapStateToProps, {toggleMenu})(CategoriesMenu);
+const Menu = connect(mapStateToProps, { toggleMenu })(CategoriesMenu);
 
 export default withNavigation(Menu);

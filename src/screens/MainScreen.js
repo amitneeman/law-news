@@ -92,8 +92,9 @@ class MainScreen extends Component {
     }
     getCategories = () => {
         const {categories} = this.props;
-        return Object.keys(categories).map( (name) => {
-           return <Category articlesNumber={5} key={name} name={name} articles={categories[name]} />
+        return Object.keys(categories).map( (name,idx) => {
+           let color = idx % 2 == 0 ? "#CF031C" : "#1D37A8"
+           return <Category articlesNumber={5} key={name} color={color} name={name} articles={categories[name]} />
         });
     }
 
