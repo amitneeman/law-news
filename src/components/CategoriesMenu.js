@@ -48,7 +48,9 @@ class CategoriesMenu extends Component {
         }
 
         const { categories, navigation } = this.props;
-        return Object.keys(categories).map((name) => (
+        let menuCategorie = {...categories}
+        delete menuCategorie["ראשי"];
+        return Object.keys(menuCategorie).map((name) => (
             <TouchableOpacity key={name} onPress={() => {
                 this.props.toggleMenu(true);
                 navigation.navigate('SingleCategory', {

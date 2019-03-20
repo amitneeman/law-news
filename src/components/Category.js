@@ -55,8 +55,8 @@ const Category = ({name,articles,navigation,articlesNumber,color}) => {
     
     if(name !== "ראשי"){
         header = (
-            <HeaderWrapper style={{backgroundColor: color}}>
-                <Header >
+            <HeaderWrapper style={color ? {backgroundColor: color}: {backgroundColor: "white"}}>
+                <Header style={color ? {}: {color: "black"}}>
                     {name}
                 </Header>
             </HeaderWrapper>
