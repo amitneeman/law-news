@@ -5,6 +5,9 @@ import _ from 'lodash';
 import HeaderArticle from './HeaderArticle';
 import {withNavigation} from 'react-navigation';
 import {TouchableOpacity} from 'react-native';
+// ANDROID RTL
+import { I18nManager,Platform } from 'react-native'
+const isRTLAndroid = Platform.OS === 'android' && I18nManager.isRTL;
 
 const Container = styled.View`
     margin-top: 12px;
@@ -15,7 +18,7 @@ const Header = styled.Text`
 font-weight: bold;
 font-size: 20;
 width: 100%;
-text-align: right;
+text-align: ${isRTLAndroid ? "left" : "right"};
 color: white;
 `
 const HeaderWrapper = styled.View`
@@ -24,7 +27,7 @@ const HeaderWrapper = styled.View`
 
 const MoveToAllArticles = styled.Text`
     width: 100%;
-    text-align: right;
+    text-align: ${isRTLAndroid ? "left" : "right"};
 `
 
 const getArticleList = (articles,articlesNumber) => {

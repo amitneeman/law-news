@@ -6,6 +6,8 @@ import SingleCategory from '../screens/SingleCategory';
 import TermsAndConditions from '../screens/TermsAndConditions';
 import NeemanLawSite from '../screens/NeemanLawSite';
 import { Ionicons } from '@expo/vector-icons';
+import { Platform, I18nManager } from 'react-native'
+
 
 const HomeStack = createStackNavigator(
   {
@@ -17,15 +19,25 @@ const HomeStack = createStackNavigator(
   {
     initialRouteName: "MainScreen",
   }
-);
+); 
+
+// RTL ANDROID
+const defaultTabOrder = {
+  'לינק לאתר': NeemanLawSite,
+  'ראשי': HomeStack
+
+}
+
+const androidLTROrder = {
+  'ראשי': HomeStack,
+  'לינק לאתר': NeemanLawSite
+}
+
+const isRTLAndroid = Platform.OS === 'android' && I18nManager.isRTL;
 
   
 export default createBottomTabNavigator(
-  {
-    'לינק לאתר': NeemanLawSite,
-    'ראשי': HomeStack
-
-  },
+  isRTLAndroid ? androidLTROrder : defaultTabOrder,
   {
     navigationOptions: ({ navigation }) => ({
       tabBarIcon: ({ focused, tintColor }) => {

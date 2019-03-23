@@ -2,10 +2,13 @@ import React from 'react';
 import {View,Image,TouchableOpacity} from 'react-native';
 import { withNavigation } from 'react-navigation';
 import styled from 'styled-components';
+// ANDROID RTL
+import { I18nManager,Platform } from 'react-native'
+const isRTLAndroid = Platform.OS === 'android' && I18nManager.isRTL;
 
 const MainArticleHeader = styled.Text`
-    text-align: right;
-    margin-right: 10;
+    text-align: ${isRTLAndroid ? "left" : "right"};
+    margin-${isRTLAndroid ? "left" : "right"}: 10;
     margin-top: 10;
     font-size: 30;
     font-weight: bold;

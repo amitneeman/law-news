@@ -8,30 +8,56 @@ import {RefreshControl,ActivityIndicator,ScrollView,Text} from 'react-native';
 import HamburgerMenu from '../containers/HamburgerMenu';
 import CategoriesMenu from '../components/CategoriesMenu';
 
+// RTL ANDROID
+defaultNavigation = {
+    title: 'חדשות המשפט',
+    headerBackTitle: null,
+    headerStyle: {
+        backgroundColor: '#af2a1c',
+        height: 60
+    },
+    headerRight: <HamburgerMenu/>,
+    headerLeft: <Image
+        style={{marginLeft: 20, marginBottom: 5}}
+        source={require("../resources/main_app_icon.png")}
+    />,
+    headerTintColor: 'white',
+    headerTitleStyle: {
+        fontWeight: 'bold',
+        textAlign: 'center',
+        alignSelf: 'center',
+        flex: 1,
+        fontSize: 20
+    }
+}
+
+rtlAndroidNavigation = {
+    title: 'חדשות המשפט',
+    headerBackTitle: null,
+    headerStyle: {
+        backgroundColor: '#af2a1c',
+        height: 60
+    },
+    headerLeft: <HamburgerMenu/>,
+    headerRight: <Image
+        style={{marginRight: 20, marginBottom: 5}}
+        source={require("../resources/main_app_icon.png")}
+    />,
+    headerTintColor: 'white',
+    headerTitleStyle: {
+        fontWeight: 'bold',
+        textAlign: 'center',
+        alignSelf: 'center',
+        flex: 1,
+        fontSize: 20
+    }
+}
+
+
 class MainScreen extends Component {
 
     static navigationOptions =({navigation}) => {
-        return {
-            title: 'חדשות המשפט',
-            headerBackTitle: null,
-            headerStyle: {
-                backgroundColor: '#af2a1c',
-                height: 60
-            },
-            headerRight: <HamburgerMenu/>,
-            headerLeft: <Image
-                style={{marginLeft: 20, marginBottom: 5}}
-                source={require("../resources/main_app_icon.png")}
-            />,
-            headerTintColor: 'white',
-            headerTitleStyle: {
-                fontWeight: 'bold',
-                textAlign: 'center',
-                alignSelf: 'center',
-                flex: 1,
-                fontSize: 20
-            }
-        }
+        return global.androidRTL ? rtlAndroidNavigation : defaultNavigation;
     };
     
     state = {

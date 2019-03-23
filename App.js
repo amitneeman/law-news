@@ -8,12 +8,13 @@ import { registerForPushNotificationsAsync } from './src/utils/notifications'
 
 class App extends Component {
   componentWillMount() {
+    // RTL ANDROID
     const isRTLAndroid = Platform.OS === 'android' && I18nManager.isRTL;
-
+    global.androidRTL = false;
     if (isRTLAndroid) {
       I18nManager.forceRTL(false);
       I18nManager.allowRTL(false);
-      Expo.Updates.reload();
+      global.androidRTL = true;
     }
 
   }

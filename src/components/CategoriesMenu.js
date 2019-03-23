@@ -1,21 +1,23 @@
 import React, { Component } from 'react';
-import { TouchableOpacity } from 'react-native';
+import { TouchableOpacity,View,Text } from 'react-native';
 import { withNavigation } from 'react-navigation';
 import styled from 'styled-components';
 import { connect } from 'react-redux';
 import { MailComposer } from 'expo';
 import { toggleMenu } from '../store/reducers/ui/actions';
-
+// ANDROID RTL
+import { Platform, I18nManager } from 'react-native'
+const isRTLAndroid = Platform.OS === 'android' && I18nManager.isRTL;
 
 const Container = styled.View`
 background-color: #eee;
 width: 60%;
 position: absolute;
 z-index: 999;
-align-self: flex-end;
-padding-right: 10px;
+align-self: flex-${isRTLAndroid ? "start" : "end"};
+padding-${isRTLAndroid ? "left" : "right"}: 10px;
 flex:1;
-align-items: flex-end;
+align-items: flex-${isRTLAndroid ? "start" : "end"};
 box-shadow: 0 0 5px black;
 border-top-width: 0;
 padding-bottom: 10px;
@@ -25,7 +27,7 @@ color: #403f3f;
 font-size: 20;
 margin-top: 10px;
 width: 100%
-text-align: right;
+text-align: ${isRTLAndroid ? "left" : "right"};
 font-weight: bold;
 
 `
