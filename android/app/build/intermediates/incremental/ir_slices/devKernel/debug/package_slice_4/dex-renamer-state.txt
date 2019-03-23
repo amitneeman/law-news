@@ -1,0 +1,4 @@
+#Wed Mar 20 21:58:01 IST 2019
+base.0=/Users/amitneeman/Development/Projects/חדשות המשפט/law-news/android/app/build/intermediates/transforms/dexMerger/devKernel/debug/4
+path.0=classes.dex
+renamed.0=classes.dex
