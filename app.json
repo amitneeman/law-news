@@ -2,18 +2,12 @@
   "expo": {
     "splash": {
       "image": "assests/splash.png",
-      "resizeMode": "cover",
-      "ldpi": "assests/splash.png",
-      "mdpi": "assests/splash.png",
-      "hdpi": "assests/splash.png",
-      "xhdpi": "assests/splash.png",
-      "xxhdpi": "assests/splash.png",
-      "xxxhdpi": "assests/splash.png"
+      "resizeMode": "cover"
     },
     "sdkVersion": "32.0.0",
     "name": "חדשות המשפט",
     "icon": "./src/resources/icon-app_180.png",
-    "version": "2.0.0",
+    "version": "3.0.0",
     "slug": "law-news",
     "ios": {
       "bundleIdentifier": "com.lawnewsltd.lawnewsprod"
@@ -21,17 +15,7 @@
     "android": {
       "package": "com.lawnewsltd.lawnewsprod",
       "versionCode": 5,
-      "googleServicesFile": "./google-services.json",
-      "splash": {
-        "image": "assests/splash.png",
-        "resizeMode": "cover",
-        "ldpi": "assests/splash.png",
-        "mdpi": "assests/splash.png",
-        "hdpi": "assests/splash.png",
-        "xhdpi": "assests/splash.png",
-        "xxhdpi": "assests/splash.png",
-        "xxxhdpi": "assests/splash.png"
-      }
+      "googleServicesFile": "./google-services.json"
     }
   }
 }

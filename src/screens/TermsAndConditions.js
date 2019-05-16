@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { View , WebView} from 'react-native'
+import terms from '../resources/termsOfUse';
 
 
 class TermsAndConditions extends Component {
@@ -19,11 +20,10 @@ class TermsAndConditions extends Component {
 
     });
     render() {
+        console.log(terms);
         return (
             <View style={{flex: 1,justifyContent: 'center'}}>
-            <WebView 
-                source={{uri: `https://drive.google.com/file/d/0B1HYzBoMHHiZSUFpX3NFdTRxb3RVWEN4WS12Snl5V3hJRzNJ/view`}}
-                />
+            <WebView source={{html: terms}} />
             </View>
         );
     }
