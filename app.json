@@ -1,20 +1,20 @@
 {
   "expo": {
     "splash": {
-      "image": "assests/splash.png",
+      "image": "assests/law_news_splash_new.png",
       "resizeMode": "cover"
     },
     "sdkVersion": "32.0.0",
     "name": "חדשות המשפט",
     "icon": "./src/resources/icon-app_180.png",
-    "version": "3.0.0",
+    "version": "4.0.1",
     "slug": "law-news",
     "ios": {
       "bundleIdentifier": "com.lawnewsltd.lawnewsprod"
     },
     "android": {
       "package": "com.lawnewsltd.lawnewsprod",
-      "versionCode": 5,
+      "versionCode": 7,
       "googleServicesFile": "./google-services.json"
     }
   }
